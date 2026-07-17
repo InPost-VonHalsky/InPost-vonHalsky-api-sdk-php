@@ -1,0 +1,34 @@
+{
+    "name": "inpostapi/inpost-vonhalsky-api-sdk-php",
+    "version": "1.0.0",
+    "description": "OpenAPI SDK for InPost API endpoints: categories, offers, orders, attachments, invoices, events, shipping methods.",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://github.com/InPost-VonHalsky/InPost-vonHalsky-api-sdk-php",
+    "license": "unlicense",
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^5.3 || ^7.3",
+        "guzzlehttp/psr7": "^1.0 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^2.12"
+    },
+    "autoload": {
+        "psr-4": { "InpostApi\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "InpostApi\\Test\\" : "test/" }
+    }
+}
