@@ -1,7 +1,7 @@
 {
     "name": "inpostapi/inpost-vonhalsky-api-sdk-php",
-    "version": "1.0.0",
-    "description": "OpenAPI SDK for InPost API endpoints: categories, offers, orders, attachments, invoices, events, shipping methods.",
+    "version": "2.0.0",
+    "description": "PHP SDK for the InPost von Halsky API: organizations, categories, offers, offer attachments, orders, returns, claims, price program, events.",
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -26,9 +26,13 @@
         "friendsofphp/php-cs-fixer": "^2.12"
     },
     "autoload": {
-        "psr-4": { "InpostApi\\" : "lib/" }
+        "psr-4": {
+            "InpostApi\\": "lib/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "InpostApi\\Test\\" : "test/" }
+        "psr-4": {
+            "InpostApi\\Test\\": "test/"
+        }
     }
 }

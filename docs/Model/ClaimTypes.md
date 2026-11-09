@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\InpostApi\InpostApiModel\ClaimType[]**](ClaimType.md) |  | [optional]
+**data** | [**\InpostApi\Model\ClaimType[]**](ClaimType.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

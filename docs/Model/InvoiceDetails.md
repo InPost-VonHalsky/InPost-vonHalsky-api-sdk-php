@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **last_name** | **string** |  | [optional]
 **tax_id_prefix** | **string** |  | [optional]
 **tax_id** | **string** |  | [optional]
-**address** | [**\InpostApi\InpostApiModel\Address**](Address.md) |  | [optional]
+**address** | [**\InpostApi\Model\Address**](Address.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

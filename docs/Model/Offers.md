@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**page** | [**\InpostApi\InpostApiModel\Page**](Page.md) |  | [optional]
-**data** | [**\InpostApi\InpostApiModel\OfferDetails[]**](OfferDetails.md) |  | [optional]
+**page** | [**\InpostApi\Model\Page**](Page.md) |  | [optional]
+**data** | [**\InpostApi\Model\OfferDetails[]**](OfferDetails.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

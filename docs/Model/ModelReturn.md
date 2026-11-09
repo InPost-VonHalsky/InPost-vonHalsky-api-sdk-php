@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | UUID identifier of resource. |
-**order_id** | **string** | UUID identifier of resource. |
-**client** | [**\InpostApi\InpostApiModel\Client**](Client.md) |  |
-**return_reason** | [**\InpostApi\InpostApiModel\ReturnReason**](ReturnReason.md) |  | [optional]
-**order_lines** | [**\InpostApi\InpostApiModel\LineItem[]**](LineItem.md) | Order line items. |
+**order_id** | **string** | String identifier of resource. |
+**client** | [**\InpostApi\Model\Client**](Client.md) |  |
+**return_reason** | [**\InpostApi\Model\ReturnReason**](ReturnReason.md) |  | [optional]
+**order_lines** | [**\InpostApi\Model\LineItem[]**](LineItem.md) | Order line items. |
 **tracking_number** | **string** | Tracking number identifier. | [optional]
 **original_tracking_number** | **string** | Tracking number identifier. | [optional]
-**status** | [**\InpostApi\InpostApiModel\ReturnStatus**](ReturnStatus.md) |  |
+**status** | [**\InpostApi\Model\ReturnStatus**](ReturnStatus.md) |  |
 **created_at** | **\DateTime** | Date Time value. |
 **expires_at** | **\DateTime** | Date Time value. | [optional]
 **delivered_at** | **\DateTime** | Date Time value. | [optional]

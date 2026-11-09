@@ -12,12 +12,12 @@ All URIs are relative to https://stage-api.inpost-group.com/inpsa, except if the
 ## `getCategoriesAttributesByCategoryIdV1()`
 
 ```php
-getCategoriesAttributesByCategoryIdV1($category_id, $accept_language): \InpostApi\InpostApiModel\AttributeDefinition[]
+getCategoriesAttributesByCategoryIdV1($category_id, $accept_language): \InpostApi\Model\AttributeDefinition[]
 ```
 
 Get Category Attributes
 
-Returns all Attributes (required and optional) for specified Category.
+Returns all Attributes (required and optional) for specified Category.  **Required scope(s):** `api:categories:read`.
 
 ### Example
 
@@ -56,7 +56,7 @@ try {
 
 ### Return type
 
-[**\InpostApi\InpostApiModel\AttributeDefinition[]**](../Model/AttributeDefinition.md)
+[**\InpostApi\Model\AttributeDefinition[]**](../Model/AttributeDefinition.md)
 
 ### Authorization
 
@@ -74,12 +74,12 @@ try {
 ## `getCategoriesByIdV1()`
 
 ```php
-getCategoriesByIdV1($category_id, $accept_language, $depth): \InpostApi\InpostApiModel\CategoryDetailed
+getCategoriesByIdV1($category_id, $accept_language, $depth): \InpostApi\Model\CategoryDetailed
 ```
 
 Get Category details
 
-Returns all details for specified Category.
+Returns all details for specified Category.  **Required scope(s):** `api:categories:read`.
 
 ### Example
 
@@ -120,7 +120,7 @@ try {
 
 ### Return type
 
-[**\InpostApi\InpostApiModel\CategoryDetailed**](../Model/CategoryDetailed.md)
+[**\InpostApi\Model\CategoryDetailed**](../Model/CategoryDetailed.md)
 
 ### Authorization
 
@@ -138,12 +138,12 @@ try {
 ## `getCategoriesV1()`
 
 ```php
-getCategoriesV1($accept_language, $category_id, $depth): \InpostApi\InpostApiModel\Category[]
+getCategoriesV1($accept_language, $category_id, $depth): \InpostApi\Model\Category[]
 ```
 
 Browse Category tree
 
-Allows browsing the category tree with specified depth level.
+Allows browsing the category tree with specified depth level.  **Required scope(s):** `api:categories:read`.
 
 ### Example
 
@@ -184,7 +184,7 @@ try {
 
 ### Return type
 
-[**\InpostApi\InpostApiModel\Category[]**](../Model/Category.md)
+[**\InpostApi\Model\Category[]**](../Model/Category.md)
 
 ### Authorization
 

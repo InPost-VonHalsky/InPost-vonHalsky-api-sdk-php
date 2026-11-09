@@ -8,6 +8,7 @@ All URIs are relative to https://stage-api.inpost-group.com/inpsa, except if the
 | [**getOffersAttachmentsByOfferIdAndAttachmentIdV1()**](OfferAttachmentsApi.md#getOffersAttachmentsByOfferIdAndAttachmentIdV1) | **GET** /v1/organizations/{organizationId}/offers/{offerId}/attachments/{attachmentId} | Download Offer Attachment |
 | [**getOffersAttachmentsByOfferIdV1()**](OfferAttachmentsApi.md#getOffersAttachmentsByOfferIdV1) | **GET** /v1/organizations/{organizationId}/offers/{offerId}/attachments | Get Offer Attachments |
 | [**postOffersAttachmentsByOfferIdV1()**](OfferAttachmentsApi.md#postOffersAttachmentsByOfferIdV1) | **POST** /v1/organizations/{organizationId}/offers/{offerId}/attachments | Create Attachment for Offer |
+| [**putAttachmentsPriorityByOfferIdV1()**](OfferAttachmentsApi.md#putAttachmentsPriorityByOfferIdV1) | **PUT** /v1/organizations/{organizationId}/offers/{offerId}/attachments/priority | Change display order of offer attachments. |
 
 
 ## `deleteOffersAttachmentsByOfferIdAndAttachmentIdV1()`
@@ -18,7 +19,7 @@ deleteOffersAttachmentsByOfferIdAndAttachmentIdV1($organization_id, $offer_id, $
 
 Delete Offer Attachment
 
-Allows to delete Attachment.
+Allows to delete Attachment.  **Required scope(s):** `api:offers:write`.
 
 ### Example
 
@@ -83,7 +84,7 @@ getOffersAttachmentsByOfferIdAndAttachmentIdV1($organization_id, $offer_id, $att
 
 Download Offer Attachment
 
-Downloading of the Attachment.
+Downloading of the Attachment.  **Required scope(s):** `api:offers:read`.
 
 ### Example
 
@@ -144,12 +145,12 @@ try {
 ## `getOffersAttachmentsByOfferIdV1()`
 
 ```php
-getOffersAttachmentsByOfferIdV1($organization_id, $offer_id, $accept_language, $limit, $offset): \InpostApi\InpostApiModel\Attachments
+getOffersAttachmentsByOfferIdV1($organization_id, $offer_id, $accept_language, $limit, $offset): \InpostApi\Model\Attachments
 ```
 
 Get Offer Attachments
 
-Allows to browse Attachments for specified Offer.
+Allows to browse Attachments for specified Offer.  **Required scope(s):** `api:offers:read`.
 
 ### Example
 
@@ -194,7 +195,7 @@ try {
 
 ### Return type
 
-[**\InpostApi\InpostApiModel\Attachments**](../Model/Attachments.md)
+[**\InpostApi\Model\Attachments**](../Model/Attachments.md)
 
 ### Authorization
 
@@ -212,12 +213,12 @@ try {
 ## `postOffersAttachmentsByOfferIdV1()`
 
 ```php
-postOffersAttachmentsByOfferIdV1($organization_id, $offer_id, $attachment_type, $accept_language, $file): \InpostApi\InpostApiModel\CommandDetails
+postOffersAttachmentsByOfferIdV1($organization_id, $offer_id, $attachment_type, $accept_language, $priority, $file): \InpostApi\Model\CommandDetails
 ```
 
 Create Attachment for Offer
 
-Allows to create new Attachments.
+Allows to create new Attachments.  **Required scope(s):** `api:offers:write`.
 
 ### Example
 
@@ -238,12 +239,13 @@ $apiInstance = new InpostApi\Api\OfferAttachmentsApi(
 );
 $organization_id = 0cd818aa-bd74-4094-bc91-14c520cfed62; // string | Organization (shop/brand, org level 2) identifier, which defines context on platform.
 $offer_id = 4dc669aa-6de6-46ab-8d72-c3fe2a0f0710; // string | Identifier of Offer object.
-$attachment_type = new \InpostApi\InpostApiModel\\InpostApi\InpostApiModel\AttachmentType(); // \InpostApi\InpostApiModel\AttachmentType | Attachment Type as query param.
+$attachment_type = new \InpostApi\Model\\InpostApi\Model\AttachmentType(); // \InpostApi\Model\AttachmentType | Attachment Type as query param.
 $accept_language = en; // string | A two-letter code of the user's preferred language compliant with ISO 639.
+$priority = 56; // int | Order position of the attachment. When omitted, the attachment is appended to the end.
 $file = '/path/to/file.txt'; // \SplFileObject | File payload.
 
 try {
-    $result = $apiInstance->postOffersAttachmentsByOfferIdV1($organization_id, $offer_id, $attachment_type, $accept_language, $file);
+    $result = $apiInstance->postOffersAttachmentsByOfferIdV1($organization_id, $offer_id, $attachment_type, $accept_language, $priority, $file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OfferAttachmentsApi->postOffersAttachmentsByOfferIdV1: ', $e->getMessage(), PHP_EOL;
@@ -256,13 +258,14 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **organization_id** | **string**| Organization (shop/brand, org level 2) identifier, which defines context on platform. | |
 | **offer_id** | **string**| Identifier of Offer object. | |
-| **attachment_type** | [**\InpostApi\InpostApiModel\AttachmentType**](../Model/.md)| Attachment Type as query param. | |
+| **attachment_type** | [**\InpostApi\Model\AttachmentType**](../Model/.md)| Attachment Type as query param. | |
 | **accept_language** | **string**| A two-letter code of the user&#39;s preferred language compliant with ISO 639. | [optional] |
+| **priority** | **int**| Order position of the attachment. When omitted, the attachment is appended to the end. | [optional] |
 | **file** | **\SplFileObject****\SplFileObject**| File payload. | [optional] |
 
 ### Return type
 
-[**\InpostApi\InpostApiModel\CommandDetails**](../Model/CommandDetails.md)
+[**\InpostApi\Model\CommandDetails**](../Model/CommandDetails.md)
 
 ### Authorization
 
@@ -271,6 +274,72 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `putAttachmentsPriorityByOfferIdV1()`
+
+```php
+putAttachmentsPriorityByOfferIdV1($organization_id, $offer_id, $attachment_priority, $accept_language): \InpostApi\Model\CommandDetails
+```
+
+Change display order of offer attachments.
+
+Updates the priority (order number) of each specified attachment. The lower number the higher priority.  **Required scope(s):** `api:offers:write`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = InpostApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InpostApi\Api\OfferAttachmentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$organization_id = 0cd818aa-bd74-4094-bc91-14c520cfed62; // string | Organization (shop/brand, org level 2) identifier, which defines context on platform.
+$offer_id = 4dc669aa-6de6-46ab-8d72-c3fe2a0f0710; // string | Identifier of Offer object.
+$attachment_priority = array(new \InpostApi\Model\AttachmentPriority()); // \InpostApi\Model\AttachmentPriority[]
+$accept_language = en; // string | A two-letter code of the user's preferred language compliant with ISO 639.
+
+try {
+    $result = $apiInstance->putAttachmentsPriorityByOfferIdV1($organization_id, $offer_id, $attachment_priority, $accept_language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OfferAttachmentsApi->putAttachmentsPriorityByOfferIdV1: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **organization_id** | **string**| Organization (shop/brand, org level 2) identifier, which defines context on platform. | |
+| **offer_id** | **string**| Identifier of Offer object. | |
+| **attachment_priority** | [**\InpostApi\Model\AttachmentPriority[]**](../Model/AttachmentPriority.md)|  | |
+| **accept_language** | **string**| A two-letter code of the user&#39;s preferred language compliant with ISO 639. | [optional] |
+
+### Return type
+
+[**\InpostApi\Model\CommandDetails**](../Model/CommandDetails.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
